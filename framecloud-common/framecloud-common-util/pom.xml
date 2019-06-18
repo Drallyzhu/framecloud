@@ -6,15 +6,20 @@
         <groupId>com.framecloud.common</groupId>
         <artifactId>framecloud-common</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.framecloud.common.util</groupId>
     <artifactId>framecloud-common-util</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.framecloud.common</groupId>
+            <artifactId>framecloud-common-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
@@ -30,30 +35,21 @@
             <version>${jjwt-version}</version>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>${gson.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-context</artifactId>
-            <version>2.0.2.RELEASE</version>
-            <scope>compile</scope>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${futool.version}</version>
         </dependency>
+
+
     </dependencies>
 
 

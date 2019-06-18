@@ -6,26 +6,37 @@
         <groupId>com.framecloud.common</groupId>
         <artifactId>framecloud-common</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.framecloud.common.jdbc</groupId>
     <artifactId>framecloud-common-jdbc</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
 
     <dependencies>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-core</artifactId>
-            <version>3.0.1</version>
-            <scope>compile</scope>
+            <version>${mybatis-plus-starter.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-extension</artifactId>
-            <version>3.0.1</version>
-            <scope>compile</scope>
+            <version>${mybatis-plus-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus-starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- jdbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
     </dependencies>
 

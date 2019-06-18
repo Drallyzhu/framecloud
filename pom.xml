@@ -12,12 +12,15 @@
     <groupId>com.framecloud</groupId>
     <artifactId>framecloud-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
 
 
     <modules>
         <module>framecloud-common</module>
-        <module>framecloud-zipkin</module>
+        <module>framecloud-auth</module>
+        <module>framecloud-gateway</module>
+        <module>framecloud-user</module>
     </modules>
 
     <properties>
@@ -66,12 +69,6 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-starter.version}</version>
-            </dependency>
-            <!-- mysql驱动 -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mapstruct</groupId>
