@@ -1,18 +1,18 @@
 package com.framecloud.common.base.exception;
 
-public class FisherException extends RuntimeException{
+public class FrameCloudException extends RuntimeException{
 
     private Integer code;
     private String errorMessage;
 
-    public FisherException() {
+    public FrameCloudException() {
     }
 
-    public FisherException(String message) {
+    public FrameCloudException(String message) {
         super(message);
     }
 
-    public FisherException(MessageExceptionEnum exception) {
+    public FrameCloudException(MessageExceptionEnum exception) {
         super(exception.getMessage());
         this.code = exception.getCode();
         this.errorMessage = exception.getMessage();

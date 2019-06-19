@@ -1,4 +1,4 @@
-package com.framecloud.common.base.config;
+package com.framecloud.common.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,7 @@ import java.util.List;
 
 @Configuration
 @EnableSwagger2
-public class Swagger2Config{
+public class Swagger2Config {
 
 
     @Bean
@@ -50,7 +50,7 @@ public class Swagger2Config{
         return new ApiInfoBuilder()
                 .title("framecloud Service API")
                 .description("framecloud Service 接口文档说明")
-                .contact(new Contact("Allen", "https://github.com/fanxinglong/fisher", "2909496168@qq.com"))
+                .contact(new Contact("Allen", "https://github.com/Drallyzhu/framecloud", "2909496168@qq.com"))
                 .version("1.0")
                 .build();
     }

@@ -2,7 +2,7 @@ package com.framecloud.auth.handler;
 
 
 import com.framecloud.auth.exception.CustomOauth2Exception;
-import com.framecloud.common.base.constants.FisherServiceNameConstants;
+import com.framecloud.common.base.constants.FrameCloudServiceNameConstants;
 import com.framecloud.common.base.dto.SysLogDTO;
 import com.framecloud.common.base.enums.OperationStatusEnum;
 import com.framecloud.common.base.enums.SysLogTypeEnum;
@@ -40,7 +40,7 @@ public class CustomWebResponseExceptionTranslator implements WebResponseExceptio
                 .setStatus(OperationStatusEnum.FAIL.getCode())
                 .setModuleName("auth认证模块")
                 .setActionName("登录")
-                .setServiceId(FisherServiceNameConstants.FISHER_AUTH)
+                .setServiceId(FrameCloudServiceNameConstants.FRAME_CLOUD_AUTH)
                 .setRemoteAddr(UrlUtil.getRemoteHost(request))
                 .setMethod(request.getMethod())
                 .setException(UrlUtil.getTrace(e));

@@ -3,7 +3,7 @@ package com.framecloud.auth.config;
 
 import com.framecloud.auth.handler.CustomWebResponseExceptionTranslator;
 import com.framecloud.auth.security.UserDetailsImpl;
-import com.framecloud.common.base.constants.FisherServiceNameConstants;
+import com.framecloud.common.base.constants.FrameCloudServiceNameConstants;
 import com.framecloud.common.base.constants.MqQueueNameConstant;
 import com.framecloud.common.base.constants.SecurityConstants;
 import com.framecloud.common.base.constants.UserConstants;
@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -101,6 +102,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                 .authenticationManager(authenticationManager)
                 .tokenStore(redisTokenStore())
                 .tokenEnhancer(tokenEnhancerChain)
+                .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 .reuseRefreshTokens(false);
         // 添加认证异常处理器
         endpoints.exceptionTranslator(customWebResponseExceptionTranslator);
@@ -149,7 +151,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                         .setStatus(OperationStatusEnum.SUCCESS.getCode())
                         .setModuleName("auth认证模块")
                         .setActionName("登录")
-                        .setServiceId(FisherServiceNameConstants.FISHER_AUTH)
+                        .setServiceId(FrameCloudServiceNameConstants.FRAME_CLOUD_AUTH)
                         .setRemoteAddr(UrlUtil.getRemoteHost(request))
                         .setMethod(request.getMethod());
                 rabbitTemplate.convertAndSend(MqQueueNameConstant.SYS_LOG_QUEUE, sysLogDTO);

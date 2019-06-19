@@ -8,7 +8,7 @@ public interface CommonConstants {
      */
     Integer TREE_ROOT = -1;
 
-    String FISHER_REDIS_LIST_LEY = "fisher_client_id_to_access:cloud";
+    String FRAME_CLOUD_REDIS_LIST_LEY = "frame_cloud_client_id_to_access:cloud";
 
 
 

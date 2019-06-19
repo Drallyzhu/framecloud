@@ -15,9 +15,9 @@ import java.util.List;
 
 /**
  * @description: security 用户对象
- * 本地测试，几个系统用的同一个redis，对象在一个系统中序列化存入redis，包路径com.fisher.auth.security.UserDetailsImpl；
- * 主要原因是因为key也是相同，在运行另一个系统时，发现这个key已经存在了，取出时，如果网关这个系统不存在com.fisher.auth.security.UserDetailsImpl这个类的话
- * 会报错redis序列化问题，com.fisher.auth.security.UserDetailsImpl找不到，并且前端会报跨域错误。
+ * 本地测试，几个系统用的同一个redis，对象在一个系统中序列化存入redis，包路径com.framecloud.auth.security.UserDetailsImpl；
+ * 主要原因是因为key也是相同，在运行另一个系统时，发现这个key已经存在了，取出时，如果网关这个系统不存在com.framecloud.auth.security.UserDetailsImpl这个类的话
+ * 会报错redis序列化问题，com.framecloud.auth.security.UserDetailsImpl找不到，并且前端会报跨域错误。
  * 由于两个对象的类所处的包路径不一致，反序列化失败，因而报找不到类错误。
  */
 

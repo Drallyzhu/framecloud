@@ -1,7 +1,7 @@
 package com.framecloud.user.controller;
 
 import com.framecloud.common.base.annotation.SysLog;
-import com.framecloud.common.base.constants.FisherServiceNameConstants;
+import com.framecloud.common.base.constants.FrameCloudServiceNameConstants;
 import com.framecloud.common.base.vo.SysResourceVO;
 import com.framecloud.common.util.ApiResult;
 import com.framecloud.common.util.UserUtil;
@@ -41,7 +41,7 @@ public class SysResourceController {
      * 获取当前用户的菜单树
      * @return
      */
-   @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token查询当前用户权限的菜单树")
+   @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token查询当前用户权限的菜单树")
     @ApiOperation(value = "获取当前用户的菜单树", notes = "根据token查询当前用户权限的菜单树", httpMethod = "GET")
     @GetMapping("/menu/tree")
     public ApiResult<List<SysResourceTree>> getMenuTree(){
@@ -54,7 +54,7 @@ public class SysResourceController {
      * 获取所有的资源树
      * @return
      */
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "获取所有菜单的树")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "获取所有菜单的树")
     @GetMapping("/tree")
     @ApiOperation(value = "获取所有菜单的树", notes = "获取所有菜单的树", httpMethod = "GET")
     public ApiResult<List<SysResourceTree>> getAllResourceTree(){
@@ -62,7 +62,7 @@ public class SysResourceController {
         return new ApiResult<>(list);
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "添加资源信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "添加资源信息")
     @ApiOperation(value = "添加资源信息", notes = "添加资源信息", httpMethod = "POST")
     @ApiImplicitParam(name = "sysResource", value = "资源信息", required = true, dataType = "SysResource")
     @PostMapping
@@ -70,7 +70,7 @@ public class SysResourceController {
         return new ApiResult(sysResourceService.save(sysResource));
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改资源信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改资源信息")
     @ApiOperation(value = "修改资源信息", notes = "修改资源信息", httpMethod = "PUT")
     @ApiImplicitParam(name = "sysResource", value = "资源信息", required = true, dataType = "SysResource")
     @PutMapping
@@ -78,7 +78,7 @@ public class SysResourceController {
         return new ApiResult(sysResourceService.updateById((sysResource)));
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据id查询资源信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据id查询资源信息")
     @ApiOperation(value = "查询资源信息", notes = "根据id查询资源信息", httpMethod = "GET")
     @ApiImplicitParam(name = "id", value = "资源id", required = true, dataType = "integer")
     @GetMapping("/id/{id}")
@@ -87,7 +87,7 @@ public class SysResourceController {
     }
 
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据id删除资源信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据id删除资源信息")
     @ApiOperation(value = "删除资源信息", notes = "根据id删除资源信息", httpMethod = "DELETE")
     @ApiImplicitParam(name = "id", value = "资源id", required = true, dataType = "integer")
     @DeleteMapping("/id/{id}")

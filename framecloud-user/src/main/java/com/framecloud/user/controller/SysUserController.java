@@ -1,7 +1,7 @@
 package com.framecloud.user.controller;
 
 import com.framecloud.common.base.annotation.SysLog;
-import com.framecloud.common.base.constants.FisherServiceNameConstants;
+import com.framecloud.common.base.constants.FrameCloudServiceNameConstants;
 import com.framecloud.common.base.constants.SecurityConstants;
 import com.framecloud.common.base.enums.ResponseCodeEnum;
 import com.framecloud.common.base.enums.SmsMessageChannnelEnum;
@@ -46,7 +46,7 @@ public class SysUserController {
     private RedisTemplate<String, Object> redisTemplate;
 
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token获取用户信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token获取用户信息")
     @ApiOperation(value = "获取用户信息", notes = "用户详细信息，附带角色信息，权限信息", httpMethod = "GET")
     @GetMapping("/info")
     public ApiResult<SysUserInfoDTO> getInfo(){
@@ -55,7 +55,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.getUserInfo(userId, roles));
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据用户名获取用户信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据用户名获取用户信息")
     @ApiOperation(value = "根据用户名获取用户信息", notes = "用户详细信息，附带角色信息，权限信息", httpMethod = "GET")
     @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "string")
     @GetMapping("/loadUserByUsername/{username}")
@@ -76,7 +76,7 @@ public class SysUserController {
         return new ApiResult<>(UserUtil.getRoles(request));
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "用户信息分页查询")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "用户信息分页查询")
     @ApiOperation(value = "获取用户信息 分页查询", notes = "用户信息分页查询", httpMethod = "GET")
     @ApiImplicitParam(name = "query", value = "用户信息查询条件", required = false, dataType = "SysUserVoQuery")
     @GetMapping("/page")
@@ -84,7 +84,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.pageUserVoByQuery(query));
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "用户信息分页查询")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "用户信息分页查询")
     @ApiOperation(value = "添加用户", notes = "添加用户信息  带角色信息", httpMethod = "POST")
     @ApiImplicitParam(name = "sysUserVo", value = "用户信息", required = true, dataType = "SysUserVo")
     @PostMapping
@@ -92,7 +92,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.save(sysUserVo));
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改用户信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "修改用户信息")
     @ApiOperation(value = "修改用户信息", notes = "修改用户信息 带角色信息", httpMethod = "PUT")
     @ApiImplicitParam(name = "sysUserVo", value = "用户信息", required = true, dataType = "SysUserVo")
     @PutMapping
@@ -100,7 +100,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.update(sysUserVo));
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "删除用户信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "删除用户信息")
     @ApiOperation(value = "删除用户信息", notes = "删除用户信息", httpMethod = "DELETE")
     @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "integer")
     @DeleteMapping("/id/{id}")
@@ -108,7 +108,7 @@ public class SysUserController {
         return new ApiResult<>(sysUserService.delete(id));
     }
 
-    @SysLog(serviceId = FisherServiceNameConstants.FISHER_USER_SERVICE, moduleName = MODULE_NAME, actionName = "主键查询用户信息")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "主键查询用户信息")
     @ApiOperation(value = "主键查询用户信息", notes = "查询用户信息", httpMethod = "GET")
     @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "integer")
     @GetMapping("/id/{id}")

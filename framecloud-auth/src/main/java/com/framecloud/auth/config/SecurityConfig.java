@@ -1,6 +1,6 @@
 package com.framecloud.auth.config;
 
-import com.framecloud.common.base.config.IgnoreUrlPropertiesConfig;
+import com.framecloud.common.config.IgnoreUrlPropertiesConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -59,7 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
             config
                 .antMatchers("/auth/**").permitAll()
-                    .antMatchers("/oauth/**").permitAll()
                 .antMatchers("/actuator/**").permitAll()
                 .anyRequest().authenticated()
 //                .and()

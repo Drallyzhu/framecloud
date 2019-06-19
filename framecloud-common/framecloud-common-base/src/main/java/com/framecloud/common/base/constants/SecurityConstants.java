@@ -10,9 +10,9 @@ public interface SecurityConstants {
      */
    String TOKEN_HEADER = "Authorization";
 
-   String CLOUD = "fisher";
+   String CLOUD = "framecloud";
 
-   String CLOUD_PREFIX = "fisher_";
+   String CLOUD_PREFIX = "framecloud_";
 
     /**
      * jwt 加密key
@@ -52,7 +52,7 @@ public interface SecurityConstants {
    String SPRING_SECURITY_MOBILE_TOKEN_URL = "/mobile/token";
 
 
-   String REDIS_CODE_PREFIX = "fisher_code_";
+   String REDIS_CODE_PREFIX = "framecloud_code_";
 
    Integer REDIS_CODE_EXPIRE = 60;
 
