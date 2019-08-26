@@ -13,12 +13,12 @@ import java.util.List;
  * <p>
  * 用户表 服务类
  * </p>
- *
  */
 public interface SysUserService extends IService<SysUser> {
 
     /**
      * 通过用户名查找用户
+     *
      * @param username
      * @return
      */
@@ -26,6 +26,7 @@ public interface SysUserService extends IService<SysUser> {
 
     /**
      * 通过mobile查找用户
+     *
      * @param mobile
      * @return
      */
@@ -33,6 +34,7 @@ public interface SysUserService extends IService<SysUser> {
 
     /**
      * 根据userid 与角色信息返回用户详细信息
+     *
      * @param userId
      * @param roles
      * @return
@@ -41,6 +43,7 @@ public interface SysUserService extends IService<SysUser> {
 
     /**
      * 用户信息分页查询
+     *
      * @param query
      * @return
      */
@@ -48,6 +51,7 @@ public interface SysUserService extends IService<SysUser> {
 
     /**
      * 添加用户信息（带角色）
+     *
      * @param sysUserVo
      * @return
      */
@@ -55,6 +59,7 @@ public interface SysUserService extends IService<SysUser> {
 
     /**
      * 更新用户信息（带角色）
+     *
      * @param sysUserVo
      * @return
      */
@@ -62,6 +67,7 @@ public interface SysUserService extends IService<SysUser> {
 
     /**
      * 删除用户信息
+     *
      * @param userId
      * @return
      */

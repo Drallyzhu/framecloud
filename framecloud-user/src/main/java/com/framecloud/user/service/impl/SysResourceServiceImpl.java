@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
  * @description: 系统资源服务实现类
  */
 @Service
-public class SysResourceServiceImpl  extends ServiceImpl<SysResourceMapper, SysResource> implements SysResourceService {
+public class SysResourceServiceImpl extends ServiceImpl<SysResourceMapper, SysResource> implements SysResourceService {
 
     @Autowired
     private SysResourceMapper sysResourceMapper;
@@ -45,7 +45,7 @@ public class SysResourceServiceImpl  extends ServiceImpl<SysResourceMapper, SysR
     @Override
     public Set<SysResource> getSysResourceRoleCodes(List<String> roleCodes) {
         Set<SysResource> sysResources = new HashSet<>();
-        roleCodes.forEach( roleCode -> {
+        roleCodes.forEach(roleCode -> {
             sysResources.addAll(sysResourceMapper.findResourceByRoleCode(roleCode));
         });
         return sysResources;
@@ -53,7 +53,7 @@ public class SysResourceServiceImpl  extends ServiceImpl<SysResourceMapper, SysR
 
     @Override
     public List<SysResourceTree> getAllResourceTree() {
-        QueryWrapper<SysResource> query  = new QueryWrapper();
+        QueryWrapper<SysResource> query = new QueryWrapper();
         query.eq("del_flag", DataStatusEnum.NORMAL.getCode());
         List<SysResource> sysResources = sysResourceMapper.selectList(query);
         return TreeUtil.list2Tree(sysResources, CommonConstants.TREE_ROOT);

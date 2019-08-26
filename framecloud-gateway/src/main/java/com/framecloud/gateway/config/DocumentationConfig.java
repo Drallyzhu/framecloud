@@ -30,11 +30,11 @@ public class DocumentationConfig implements SwaggerResourcesProvider {
         List<Route> routes = routeLocator.getRoutes();
         //在这里遍历的时候，可以排除掉敏感微服务的路由
         routes.forEach(
-            route -> {
-                if (swaggerClientConfig.getClient().contains(route.getId())) {
-                    resources.add(swaggerResource(route.getId(), route.getFullPath().replace("**", "v2/api-docs"), "2.0"));
+                route -> {
+                    if (swaggerClientConfig.getClient().contains(route.getId())) {
+                        resources.add(swaggerResource(route.getId(), route.getFullPath().replace("**", "v2/api-docs"), "2.0"));
+                    }
                 }
-            }
         );
         return resources;
     }

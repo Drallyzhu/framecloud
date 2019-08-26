@@ -39,12 +39,13 @@ public class SysResourceController {
 
     /**
      * 获取当前用户的菜单树
+     *
      * @return
      */
-   @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token查询当前用户权限的菜单树")
+    @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token查询当前用户权限的菜单树")
     @ApiOperation(value = "获取当前用户的菜单树", notes = "根据token查询当前用户权限的菜单树", httpMethod = "GET")
     @GetMapping("/menu/tree")
-    public ApiResult<List<SysResourceTree>> getMenuTree(){
+    public ApiResult<List<SysResourceTree>> getMenuTree() {
         List<String> roleCodes = UserUtil.getRoles(request);
         List<SysResourceTree> list = sysResourceService.getMenuTreeByRoleCodes(roleCodes);
         return new ApiResult<>(list);
@@ -52,12 +53,13 @@ public class SysResourceController {
 
     /**
      * 获取所有的资源树
+     *
      * @return
      */
     @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "获取所有菜单的树")
     @GetMapping("/tree")
     @ApiOperation(value = "获取所有菜单的树", notes = "获取所有菜单的树", httpMethod = "GET")
-    public ApiResult<List<SysResourceTree>> getAllResourceTree(){
+    public ApiResult<List<SysResourceTree>> getAllResourceTree() {
         List<SysResourceTree> list = sysResourceService.getAllResourceTree();
         return new ApiResult<>(list);
     }
@@ -82,7 +84,7 @@ public class SysResourceController {
     @ApiOperation(value = "查询资源信息", notes = "根据id查询资源信息", httpMethod = "GET")
     @ApiImplicitParam(name = "id", value = "资源id", required = true, dataType = "integer")
     @GetMapping("/id/{id}")
-    public ApiResult<SysResource> getById(@PathVariable("id") Integer id){
+    public ApiResult<SysResource> getById(@PathVariable("id") Integer id) {
         return new ApiResult<>(sysResourceService.getById(id));
     }
 
@@ -98,12 +100,13 @@ public class SysResourceController {
     /**
      * 对内服务 不用ApiResult保装
      * 根据角色查询资源信息
+     *
      * @param roleCode
      */
     @ApiOperation(value = "根据角色查询资源信息", notes = "根据角色查询资源信息", httpMethod = "GET")
     @ApiImplicitParam(name = "roleCode", value = "角色code", required = true, dataType = "string")
     @GetMapping("/role/{roleCode}")
-    public Set<SysResourceVO> listResourceByRole(@PathVariable("roleCode") String roleCode){
+    public Set<SysResourceVO> listResourceByRole(@PathVariable("roleCode") String roleCode) {
 
         List<SysResource> sysResources = sysResourceService.findResourceByRoleCode(roleCode);
         Set<SysResourceVO> sysResourceVOS = new HashSet<>();

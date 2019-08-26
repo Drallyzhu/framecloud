@@ -11,6 +11,7 @@ public interface SysRoleService extends IService<SysRole> {
 
     /**
      * 添加角色信息 带权限资源信息
+     *
      * @param sysRoleDTO
      * @return
      */
@@ -18,6 +19,7 @@ public interface SysRoleService extends IService<SysRole> {
 
     /**
      * 更新角色信息 带权限资源信息
+     *
      * @param sysRoleDTO
      * @return
      */
@@ -25,6 +27,7 @@ public interface SysRoleService extends IService<SysRole> {
 
     /**
      * 根据id删除角色信息  同时删除与其绑定的资源信息
+     *
      * @param roleId
      * @return
      */
@@ -32,6 +35,7 @@ public interface SysRoleService extends IService<SysRole> {
 
     /**
      * 根据角色id查询角色信息与其绑定的资源id
+     *
      * @param roleId
      * @return
      */
@@ -39,6 +43,7 @@ public interface SysRoleService extends IService<SysRole> {
 
     /**
      * 分页条件查询
+     *
      * @param query
      * @return
      */
@@ -46,6 +51,7 @@ public interface SysRoleService extends IService<SysRole> {
 
     /**
      * 查询所有的角色
+     *
      * @return
      */
     List<SysRole> listSysRole();

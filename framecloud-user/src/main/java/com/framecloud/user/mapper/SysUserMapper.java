@@ -11,12 +11,12 @@ import org.apache.ibatis.annotations.Param;
  * <p>
  * 用户表 Mapper 接口
  * </p>
- *
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 根据用户名查询用户信息（包括角色信息）
+     *
      * @param username 用户名
      * @return
      */
@@ -24,6 +24,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 根据用户名查询用户信息（包括角色信息）
+     *
      * @param mobile 手机号
      * @return
      */
@@ -31,6 +32,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 用户信息分页查询
+     *
      * @param query
      * @return
      */
@@ -38,6 +40,7 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 统计
+     *
      * @param username
      * @return
      */

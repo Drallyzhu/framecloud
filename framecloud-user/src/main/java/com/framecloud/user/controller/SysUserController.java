@@ -49,9 +49,9 @@ public class SysUserController {
     @SysLog(serviceId = FrameCloudServiceNameConstants.FRAME_CLOUD_USER_SERVICE, moduleName = MODULE_NAME, actionName = "根据token获取用户信息")
     @ApiOperation(value = "获取用户信息", notes = "用户详细信息，附带角色信息，权限信息", httpMethod = "GET")
     @GetMapping("/info")
-    public ApiResult<SysUserInfoDTO> getInfo(){
+    public ApiResult<SysUserInfoDTO> getInfo() {
         Integer userId = UserUtil.getUserId(request);
-        List<String> roles =UserUtil.getRoles(request);
+        List<String> roles = UserUtil.getRoles(request);
         return new ApiResult<>(sysUserService.getUserInfo(userId, roles));
     }
 
@@ -59,20 +59,20 @@ public class SysUserController {
     @ApiOperation(value = "根据用户名获取用户信息", notes = "用户详细信息，附带角色信息，权限信息", httpMethod = "GET")
     @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "string")
     @GetMapping("/loadUserByUsername/{username}")
-    public SysUserVo loadUserByUsername(@PathVariable(value = "username") String username){
+    public SysUserVo loadUserByUsername(@PathVariable(value = "username") String username) {
         return sysUserService.loadUserByUsername(username);
     }
 
     @ApiOperation(value = "根据mobile获取用户信息", notes = "用户详细信息，附带角色信息，权限信息", httpMethod = "GET")
     @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "string")
     @GetMapping("/loadUserByMobile/{mobile}")
-    public SysUserVo loadUserByMobile(@PathVariable(value = "mobile") String mobile){
+    public SysUserVo loadUserByMobile(@PathVariable(value = "mobile") String mobile) {
         return sysUserService.loadUserByMobile(mobile);
     }
 
     @ApiOperation(value = "获取用户角色信息", notes = "根据token获取用户角色信息", httpMethod = "GET")
     @GetMapping("/roles")
-    public ApiResult<List<String>> getRoles(){
+    public ApiResult<List<String>> getRoles() {
         return new ApiResult<>(UserUtil.getRoles(request));
     }
 
@@ -80,7 +80,7 @@ public class SysUserController {
     @ApiOperation(value = "获取用户信息 分页查询", notes = "用户信息分页查询", httpMethod = "GET")
     @ApiImplicitParam(name = "query", value = "用户信息查询条件", required = false, dataType = "SysUserVoQuery")
     @GetMapping("/page")
-    public ApiResult<SysUserVoQuery> pageByQuery(SysUserVoQuery query){
+    public ApiResult<SysUserVoQuery> pageByQuery(SysUserVoQuery query) {
         return new ApiResult<>(sysUserService.pageUserVoByQuery(query));
     }
 
@@ -88,7 +88,7 @@ public class SysUserController {
     @ApiOperation(value = "添加用户", notes = "添加用户信息  带角色信息", httpMethod = "POST")
     @ApiImplicitParam(name = "sysUserVo", value = "用户信息", required = true, dataType = "SysUserVo")
     @PostMapping
-    public ApiResult<Boolean> save(@RequestBody SysUserVo sysUserVo){
+    public ApiResult<Boolean> save(@RequestBody SysUserVo sysUserVo) {
         return new ApiResult<>(sysUserService.save(sysUserVo));
     }
 
@@ -96,7 +96,7 @@ public class SysUserController {
     @ApiOperation(value = "修改用户信息", notes = "修改用户信息 带角色信息", httpMethod = "PUT")
     @ApiImplicitParam(name = "sysUserVo", value = "用户信息", required = true, dataType = "SysUserVo")
     @PutMapping
-    public ApiResult<Boolean> update(@RequestBody SysUserVo sysUserVo){
+    public ApiResult<Boolean> update(@RequestBody SysUserVo sysUserVo) {
         return new ApiResult<>(sysUserService.update(sysUserVo));
     }
 
@@ -104,7 +104,7 @@ public class SysUserController {
     @ApiOperation(value = "删除用户信息", notes = "删除用户信息", httpMethod = "DELETE")
     @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "integer")
     @DeleteMapping("/id/{id}")
-    public ApiResult<Boolean> delete(@PathVariable("id") Integer id){
+    public ApiResult<Boolean> delete(@PathVariable("id") Integer id) {
         return new ApiResult<>(sysUserService.delete(id));
     }
 
@@ -112,21 +112,21 @@ public class SysUserController {
     @ApiOperation(value = "主键查询用户信息", notes = "查询用户信息", httpMethod = "GET")
     @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "integer")
     @GetMapping("/id/{id}")
-    public ApiResult<SysUser> get(@PathVariable("id") Integer id){
+    public ApiResult<SysUser> get(@PathVariable("id") Integer id) {
         return new ApiResult<>(sysUserService.getById(id));
     }
 
     @ApiOperation(value = "发送登录验证码", notes = "发送登录验证码", httpMethod = "GET")
     @ApiImplicitParam(name = "mobile", value = "电话号码", required = true, dataType = "string")
     @GetMapping("/mobile/{mobile}")
-    public ApiResult<String> sendMobileCode(@PathVariable("mobile") String mobile){
-        Object originCode  = redisTemplate.opsForValue().get(SecurityConstants.REDIS_CODE_PREFIX + mobile);
-        if(originCode != null) {
+    public ApiResult<String> sendMobileCode(@PathVariable("mobile") String mobile) {
+        Object originCode = redisTemplate.opsForValue().get(SecurityConstants.REDIS_CODE_PREFIX + mobile);
+        if (originCode != null) {
             log.info("手机号{}验证码{}尚未失效，请失效后再申请。", mobile, originCode);
             return new ApiResult<>("验证码尚未失效", ResponseCodeEnum.FAIL);
         }
         SysUserVo sysUserVo = sysUserService.loadUserByMobile(mobile);
-        if(sysUserVo == null) {
+        if (sysUserVo == null) {
             log.error("手机号为{} 用户不存在", mobile);
             return new ApiResult<String>("手机号不存在", ResponseCodeEnum.FAIL);
         }
@@ -142,11 +142,9 @@ public class SysUserController {
         // 发送消息处理中心
 //        rabbitTemplate.convertAndSend(MqQueueNameConstant.MOBILE_CODE_QUEUE,smsMessageTemplate);
         // 存redis
-        redisTemplate.opsForValue().set(SecurityConstants.REDIS_CODE_PREFIX+mobile, Integer.valueOf(code), SecurityConstants.REDIS_CODE_EXPIRE, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set(SecurityConstants.REDIS_CODE_PREFIX + mobile, Integer.valueOf(code), SecurityConstants.REDIS_CODE_EXPIRE, TimeUnit.SECONDS);
         return new ApiResult<>(code);
     }
-
-
 
 
 }

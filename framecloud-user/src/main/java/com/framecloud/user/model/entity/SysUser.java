@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
  * <p>
  * 用户表
  * </p>
- *
  */
 @Data
 @Accessors(chain = true)

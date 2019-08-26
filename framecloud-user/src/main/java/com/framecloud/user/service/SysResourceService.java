@@ -13,9 +13,9 @@ import java.util.Set;
 public interface SysResourceService extends IService<SysResource> {
 
 
-
     /**
      * 根据角色codes查询菜单树形
+     *
      * @param roleCodes
      * @return
      */
@@ -23,6 +23,7 @@ public interface SysResourceService extends IService<SysResource> {
 
     /**
      * 根据角色codes查询菜单列表
+     *
      * @param roleCodes
      * @return
      */
@@ -30,12 +31,14 @@ public interface SysResourceService extends IService<SysResource> {
 
     /**
      * 查询所有的资源
+     *
      * @return
      */
     List<SysResourceTree> getAllResourceTree();
 
     /**
      * 删除资源以及子资源
+     *
      * @param id
      * @return
      */
@@ -43,10 +46,11 @@ public interface SysResourceService extends IService<SysResource> {
 
     /**
      * 根据角色code查询资源信息
+     *
      * @param roleCode
      * @return
      */
-    List<SysResource>findResourceByRoleCode(String roleCode);
+    List<SysResource> findResourceByRoleCode(String roleCode);
 
     List<String> findPermission(List<String> roles);
 

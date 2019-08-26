@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 public class SmsMessageTemplate extends MessageTemplate implements Serializable {
-    private static final long serialVersionUID =1133414L;
+    private static final long serialVersionUID = 1133414L;
 
     /**
      * 电话号码

@@ -2,9 +2,8 @@ package com.framecloud.common.base.exception;
 
 /**
  * 消息服务异常集合
- *
  */
-public enum MessageExceptionEnum  {
+public enum MessageExceptionEnum {
 
     QUEUE_CANT_EMPTY(600, "消息队列不能为空"),
     MESSAGE_ID_CANT_EMPTY(601, "消息id不能为空"),

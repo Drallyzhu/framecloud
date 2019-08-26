@@ -7,7 +7,6 @@ import lombok.experimental.Accessors;
  * <p>
  * oauth2客户端资源认证表
  * </p>
- *
  */
 @Data
 @Accessors(chain = true)

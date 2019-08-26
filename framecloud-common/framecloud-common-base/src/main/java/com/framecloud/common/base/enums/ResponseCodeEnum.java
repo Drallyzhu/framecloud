@@ -3,15 +3,15 @@ package com.framecloud.common.base.enums;
 /**
  * @description: 响应信息code枚举
  */
-public enum  ResponseCodeEnum {
+public enum ResponseCodeEnum {
 
     SUCCESS(0, "success"),
 
-    NOT_LOGIN(-1,"need login"),
+    NOT_LOGIN(-1, "need login"),
 
-    FAIL(-1,"fail"),
+    FAIL(-1, "fail"),
 
-    PERMISSION_DEFINED(2,"permission defined");
+    PERMISSION_DEFINED(2, "permission defined");
 
 
     private Integer code;

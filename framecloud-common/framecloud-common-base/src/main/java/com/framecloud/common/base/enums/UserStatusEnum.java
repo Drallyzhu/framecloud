@@ -3,7 +3,7 @@ package com.framecloud.common.base.enums;
 /**
  * @description: 用户状态枚举
  */
-public enum  UserStatusEnum {
+public enum UserStatusEnum {
 
     /**
      * 正常
@@ -13,7 +13,7 @@ public enum  UserStatusEnum {
     /**
      * 锁定
      */
-    LOCK("1","锁定");
+    LOCK("1", "锁定");
 
 
     private String code;

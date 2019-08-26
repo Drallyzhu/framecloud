@@ -69,6 +69,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
     /**
      * 配置token存储到redis中
+     *
      * @return
      */
     @Bean
@@ -79,6 +80,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
     /**
      * 配置client通过jdbc从数据库查询
+     *
      * @param clients
      * @throws Exception
      */
@@ -114,7 +116,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                 // 允许表单认证请求
                 .allowFormAuthenticationForClients()
                 // spel表达式 访问公钥端点（/auth/token_key）需要认证
-                .tokenKeyAccess("permitAll()")
+                .tokenKeyAccess("isAuthenticated()")
                 // spel表达式 访问令牌解析端点（/auth/check_token）需要认证
                 .checkTokenAccess("isAuthenticated()");
     }
@@ -128,6 +130,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
 
     /**
      * jwt token增强，添加额外信息
+     *
      * @return
      */
     @Bean
@@ -161,7 +164,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
                     additionMessage.put(UserConstants.USER_ID, user.getUserId());
                     additionMessage.put(UserConstants.USER_NAME, user.getUsername());
                 }
-                ((DefaultOAuth2AccessToken)oAuth2AccessToken).setAdditionalInformation(additionMessage);
+                ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(additionMessage);
                 return oAuth2AccessToken;
             }
         };

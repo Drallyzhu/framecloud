@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
  * <p>
  * feign 调用服务
  * </p>
- *
  */
-@FeignClient(name = "framecloud-user-service", fallback = SysUserServiceFallback.class,configuration = SysUserService.UserFeignConfig.class)
+@FeignClient(name = "framecloud-user-service", fallback = SysUserServiceFallback.class, configuration = SysUserService.UserFeignConfig.class)
 public interface SysUserService {
 
     /**
      * 通过用户名查找用户
+     *
      * @param username
      * @return
      */
@@ -27,6 +27,7 @@ public interface SysUserService {
 
     /**
      * 通过mobile查找用户
+     *
      * @param mobile
      * @return
      */

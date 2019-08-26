@@ -11,5 +11,4 @@ public interface CommonConstants {
     String FRAME_CLOUD_REDIS_LIST_LEY = "frame_cloud_client_id_to_access:cloud";
 
 
-
 }

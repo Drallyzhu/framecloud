@@ -40,7 +40,7 @@ public class ApiResult<T> implements Serializable {
         this.code = ResponseCodeEnum.FAIL.getCode();
     }
 
-    public ApiResult(Throwable throwable, ResponseCodeEnum  code) {
+    public ApiResult(Throwable throwable, ResponseCodeEnum code) {
         this.message = throwable.getMessage();
         this.code = code.getCode();
     }

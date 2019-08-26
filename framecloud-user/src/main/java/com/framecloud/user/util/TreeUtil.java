@@ -14,16 +14,17 @@ public class TreeUtil {
 
     /**
      * 数组转树形结构
+     *
      * @param sysResources
      * @param root
      * @return
      */
-    public static List<SysResourceTree> list2Tree(List<SysResource> sysResources, Integer root){
+    public static List<SysResourceTree> list2Tree(List<SysResource> sysResources, Integer root) {
         // 普通对象转树节点
         List<SysResourceTree> resourceList = buildTree(sysResources);
         List<SysResourceTree> trees = new ArrayList<>();
-        for (SysResourceTree tree: resourceList) {
-            if( root.equals(tree.getParentId())) {
+        for (SysResourceTree tree : resourceList) {
+            if (root.equals(tree.getParentId())) {
                 trees.add(tree);
             }
 
@@ -41,12 +42,13 @@ public class TreeUtil {
 
     /**
      * 对象转树节点
+     *
      * @param sysResources
      * @return
      */
-    public static List<SysResourceTree> buildTree(List<SysResource> sysResources){
+    public static List<SysResourceTree> buildTree(List<SysResource> sysResources) {
         List<SysResourceTree> trees = new ArrayList<>();
-        sysResources.forEach( resource->{
+        sysResources.forEach(resource -> {
             SysResourceTree tree = new SysResourceTree();
             BeanUtils.copyProperties(resource, tree);
             trees.add(tree);

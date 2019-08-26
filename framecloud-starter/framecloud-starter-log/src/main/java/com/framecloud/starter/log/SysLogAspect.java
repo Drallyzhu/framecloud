@@ -34,13 +34,13 @@ public class SysLogAspect {
     public Object handlerControllerMethod(ProceedingJoinPoint pjp) {
         Object result = null;
         Signature signature = pjp.getSignature();
-        MethodSignature methodSignature = (MethodSignature)signature;
+        MethodSignature methodSignature = (MethodSignature) signature;
         Method targetMethod = methodSignature.getMethod();
 
         long startTime = System.currentTimeMillis();
         SysLogDTO sysLogDTO = new SysLogDTO();
         // 需要记录日志存库
-        if(targetMethod.isAnnotationPresent(SysLog.class)) {
+        if (targetMethod.isAnnotationPresent(SysLog.class)) {
             Gson gson = new Gson();
             HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 
@@ -70,21 +70,15 @@ public class SysLogAspect {
         // 本次操作用时（毫秒）
         long elapsedTime = System.currentTimeMillis() - startTime;
         log.info("[{}]use time: {}", pjp.getSignature(), elapsedTime);
-        sysLogDTO.setTime(String.valueOf(elapsedTime)+"毫秒");
+        sysLogDTO.setTime(String.valueOf(elapsedTime) + "毫秒");
 
 
         // 发送消息到 系统日志队列
-        if(targetMethod.isAnnotationPresent(SysLog.class)) {
+        if (targetMethod.isAnnotationPresent(SysLog.class)) {
             rabbitTemplate.convertAndSend(MqQueueNameConstant.SYS_LOG_QUEUE, sysLogDTO);
         }
         return result;
     }
-
-
-
-
-
-
 
 
 }

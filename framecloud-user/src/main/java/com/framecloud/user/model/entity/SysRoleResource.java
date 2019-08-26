@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class SysRoleResource{
+public class SysRoleResource {
 
     private static final long serialVersionUID = 1L;
 

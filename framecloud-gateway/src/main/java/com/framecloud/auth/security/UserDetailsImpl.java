@@ -33,8 +33,6 @@ public class UserDetailsImpl implements UserDetails {
     private List<SysRoleVo> roleVos;
 
 
-
-
     public UserDetailsImpl(SysUserVo userVo) {
         this.userId = userVo.getUserId();
         this.username = userVo.getUsername();
@@ -46,7 +44,7 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorityList = new ArrayList<>();
-        roleVos.forEach(role ->{
+        roleVos.forEach(role -> {
             authorityList.add(new SimpleGrantedAuthority(role.getRoleCode()));
         });
 //        authorityList.add(new SimpleGrantedAuthority("ROLE_USER"));

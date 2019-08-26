@@ -26,7 +26,7 @@ public class ClientDetailsImpl implements ClientDetails {
 
     private Set<String> scope;
 
-    private  Collection<GrantedAuthority> authorities;
+    private Collection<GrantedAuthority> authorities;
 
     public ClientDetailsImpl() {
         Set<String> authorizedGrantTypes = new HashSet<>();

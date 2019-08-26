@@ -55,5 +55,4 @@ public class SysZuulRoute implements Serializable {
     private String delFlag;
 
 
-
 }

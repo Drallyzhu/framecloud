@@ -27,7 +27,8 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
     private ObjectMapper objectMapper;
 
     /**
-     *  授权拒绝处理器
+     * 授权拒绝处理器
+     *
      * @param request
      * @param response
      * @param accessDeniedException

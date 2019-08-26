@@ -8,6 +8,7 @@ public class UrlUtil {
 
     /**
      * 获取目标主机的ip
+     *
      * @param request
      * @return
      */
@@ -28,14 +29,15 @@ public class UrlUtil {
 
     /**
      * 获取完整的异常栈信息
+     *
      * @param t
      * @return
      */
-    public static   String getTrace(Throwable t) {
-        StringWriter stringWriter= new StringWriter();
-        PrintWriter writer= new PrintWriter(stringWriter);
+    public static String getTrace(Throwable t) {
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter writer = new PrintWriter(stringWriter);
         t.printStackTrace(writer);
-        StringBuffer buffer= stringWriter.getBuffer();
+        StringBuffer buffer = stringWriter.getBuffer();
         return buffer.toString();
     }
 

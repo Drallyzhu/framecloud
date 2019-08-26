@@ -1,4 +1,4 @@
-package com.framecloud.log.mapper;
+package com.framecloud.log.dao.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

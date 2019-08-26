@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@MapperScan("com.framecloud.log.mapper")
+@MapperScan("com.framecloud.log.dao.mapper")
 public class MybatisPlusConfig {
 
 

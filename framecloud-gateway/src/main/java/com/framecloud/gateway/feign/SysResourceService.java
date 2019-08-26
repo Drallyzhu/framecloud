@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Set;
 
 
-@FeignClient(name = "framecloud-user-service",fallback = SysResourceFallback.class, configuration = FeignConfig.class)
+@FeignClient(name = "framecloud-user-service", fallback = SysResourceFallback.class, configuration = FeignConfig.class)
 public interface SysResourceService {
 
     /**
      * 根据角色查询资源信息
+     *
      * @param roleCode
      * @return
      */

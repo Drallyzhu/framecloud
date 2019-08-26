@@ -6,7 +6,7 @@ package com.framecloud.common.base.enums;
 public enum OperationStatusEnum {
 
     SUCCESS("0", "成功"),
-    FAIL("1","失败");
+    FAIL("1", "失败");
 
 
     private String code;

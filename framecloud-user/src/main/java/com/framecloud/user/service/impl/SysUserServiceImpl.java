@@ -25,7 +25,6 @@ import java.util.Set;
  * <p>
  * 用户表 服务实现类
  * </p>
- *
  */
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
@@ -115,6 +114,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 绑定用户与角色信息
+     *
      * @param sysUserVo
      */
     private void bindUserWithRole(SysUserVo sysUserVo) {
@@ -128,6 +128,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 删除用户与角色信息
+     *
      * @param userId
      */
     private void deleteUserWithRole(Integer userId) {

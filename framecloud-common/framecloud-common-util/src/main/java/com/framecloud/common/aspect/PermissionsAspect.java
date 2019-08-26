@@ -39,11 +39,11 @@ public class PermissionsAspect {
     @Around("permissions()")
     public Object doConcurrentOperation(ProceedingJoinPoint pjp) throws Throwable {
         Signature signature = pjp.getSignature();
-        MethodSignature methodSignature = (MethodSignature)signature;
+        MethodSignature methodSignature = (MethodSignature) signature;
         Method targetMethod = methodSignature.getMethod();
         Method realMethod = pjp.getTarget().getClass().getDeclaredMethod(signature.getName(), targetMethod.getParameterTypes());
         logger.info("Around:" + realMethod);
-        if(realMethod.isAnnotationPresent(Permissions.class)){
+        if (realMethod.isAnnotationPresent(Permissions.class)) {
             RequestAttributes ra = RequestContextHolder.getRequestAttributes();
             ServletRequestAttributes sra = (ServletRequestAttributes) ra;
             HttpServletRequest request = sra.getRequest();

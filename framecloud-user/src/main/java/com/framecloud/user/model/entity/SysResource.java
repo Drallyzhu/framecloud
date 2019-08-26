@@ -98,5 +98,4 @@ public class SysResource implements Serializable {
     private String method;
 
 
-
 }

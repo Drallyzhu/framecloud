@@ -14,6 +14,7 @@ public interface SysLogService extends IService<SysLog> {
 
     /**
      * 分页条件查询
+     *
      * @param query
      * @return
      */

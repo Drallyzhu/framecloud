@@ -29,6 +29,7 @@ public class SysLogReceiveListener {
 
     /**
      * 日志队列消费端，存数据库
+     *
      * @param sysLogDTO
      * @param channel
      * @param message

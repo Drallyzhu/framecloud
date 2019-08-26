@@ -3,7 +3,7 @@ package com.framecloud.common.base.enums;
 import lombok.Getter;
 
 
-public enum  SmsMessageChannnelEnum {
+public enum SmsMessageChannnelEnum {
 
     /**
      * 腾讯云

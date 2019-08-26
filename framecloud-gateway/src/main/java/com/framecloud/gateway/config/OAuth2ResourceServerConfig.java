@@ -38,6 +38,7 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
 
     /**
      * 配置token存储到redis中
+     *
      * @return
      */
     @Bean
@@ -68,17 +69,15 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     }
 
 
-
-
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
-        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config =  http.authorizeRequests();
-        ignoreUrlPropertiesConfig.getUrls().forEach( e ->{
+        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config = http.authorizeRequests();
+        ignoreUrlPropertiesConfig.getUrls().forEach(e -> {
             config.antMatchers(e).permitAll();
         });
         // 前后分离 先发出options 放行
-        config.antMatchers(HttpMethod.OPTIONS,"/**","/auth/**","/admin/**","/actuator/**","/oauth/**").permitAll()
+        config.antMatchers(HttpMethod.OPTIONS, "/**", "/auth/**", "/admin/**", "/actuator/**", "/oauth/**").permitAll()
                 .anyRequest().access("@permissionService.hasPermission(request,authentication)");
 
     }

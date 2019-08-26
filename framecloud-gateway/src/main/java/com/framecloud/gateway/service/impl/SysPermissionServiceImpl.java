@@ -38,11 +38,11 @@ public class SysPermissionServiceImpl implements SysPermissionService {
             }
             Set<SysResourceVO> urls = new HashSet<>();
             for (SimpleGrantedAuthority authority : grantedAuthorityList) {
-                    // TODO 角色与菜单权限的关联关系需要缓存提高访问效率
-                    Set<SysResourceVO> menuVOSet =sysResourceService.listResourceByRole(authority.getAuthority());
-                    if (CollUtil.isNotEmpty(menuVOSet)) {
-                        CollUtil.addAll(urls, menuVOSet);
-                    }
+                // TODO 角色与菜单权限的关联关系需要缓存提高访问效率
+                Set<SysResourceVO> menuVOSet = sysResourceService.listResourceByRole(authority.getAuthority());
+                if (CollUtil.isNotEmpty(menuVOSet)) {
+                    CollUtil.addAll(urls, menuVOSet);
+                }
             }
             String uri = request.getRequestURI();
             for (SysResourceVO menu : urls) {

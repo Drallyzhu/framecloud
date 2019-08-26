@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class EmailMessageTemplate extends MessageTemplate{
+public class EmailMessageTemplate extends MessageTemplate {
 
     /**
      * email地址

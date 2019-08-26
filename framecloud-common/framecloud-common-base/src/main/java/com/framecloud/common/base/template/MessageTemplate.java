@@ -14,7 +14,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class MessageTemplate implements Serializable {
 
-    private static final long serialVersionUID =1133111414L;
+    private static final long serialVersionUID = 1133111414L;
 
 
     /**

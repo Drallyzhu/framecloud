@@ -15,16 +15,17 @@ public class UserUtil {
 
     /**
      * 获取请求中的token
+     *
      * @param request
      * @return token
      */
-    public static String getToken(HttpServletRequest request){
+    public static String getToken(HttpServletRequest request) {
         String token = "";
         String authorization = request.getHeader(SecurityConstants.TOKEN_HEADER);
-        if(authorization != null){
+        if (authorization != null) {
             token = authorization.split(" ")[1];
         }
-        if(request.getParameter("access_token")!=null){
+        if (request.getParameter("access_token") != null) {
             token = request.getParameter("access_token");
         }
 
@@ -34,6 +35,7 @@ public class UserUtil {
 
     /**
      * 获取jwt中的claims信息
+     *
      * @param token
      * @return claim
      */
@@ -45,12 +47,13 @@ public class UserUtil {
 
     /**
      * 获取请求中的userId
+     *
      * @param request
      * @return userId
      */
-    public static Integer getUserId(HttpServletRequest request){
+    public static Integer getUserId(HttpServletRequest request) {
         String token = getToken(request);
-        if(token == null){
+        if (token == null) {
             return null;
         }
         Claims claims = getClaims(token);
@@ -61,12 +64,13 @@ public class UserUtil {
 
     /**
      * 获取请求中的userId
+     *
      * @param request
      * @return userId
      */
-    public static String getUserName(HttpServletRequest request){
+    public static String getUserName(HttpServletRequest request) {
         String token = getToken(request);
-        if(token == null){
+        if (token == null) {
             return null;
         }
         Claims claims = getClaims(token);
@@ -77,12 +81,13 @@ public class UserUtil {
 
     /**
      * 获取请求中的roles集合
+     *
      * @param request
      * @return roles
      */
     public static List<String> getRoles(HttpServletRequest request) {
         String token = getToken(request);
-        if(token == null){
+        if (token == null) {
             return null;
         }
         Claims claims = getClaims(token);

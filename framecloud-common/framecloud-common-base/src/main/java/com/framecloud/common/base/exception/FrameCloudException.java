@@ -1,6 +1,6 @@
 package com.framecloud.common.base.exception;
 
-public class FrameCloudException extends RuntimeException{
+public class FrameCloudException extends RuntimeException {
 
     private Integer code;
     private String errorMessage;

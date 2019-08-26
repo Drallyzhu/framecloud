@@ -16,6 +16,11 @@ import java.util.*;
 
 /**
  * @description: 动态路由实现
+ * 普通那种是
+ * zuul.routes.<key>.path=/foo/**
+ * zuul.routes.<key>.service-id= 服务实例名称
+ * zuul.routes.<key>.url=http://xxxoo
+ * 用动态路由的话，就可以配置，不需要写配置重启
  */
 @Slf4j
 public class DynamicRouteLocator extends SimpleRouteLocator implements RefreshableRouteLocator {
@@ -28,7 +33,7 @@ public class DynamicRouteLocator extends SimpleRouteLocator implements Refreshab
         super(servletPath, properties);
         this.properties = properties;
         this.jdbcTemplate = jdbcTemplate;
-        log.info("servletPath:{}",servletPath);
+        log.info("servletPath:{}", servletPath);
     }
 
     @Override
@@ -64,41 +69,42 @@ public class DynamicRouteLocator extends SimpleRouteLocator implements Refreshab
 
     /**
      * 从数据库读取zuul路由规则
+     *
      * @return
      */
-   private LinkedHashMap<String, ZuulProperties.ZuulRoute> locateRoutesFromDB() {
+    private LinkedHashMap<String, ZuulProperties.ZuulRoute> locateRoutesFromDB() {
         LinkedHashMap<String, ZuulProperties.ZuulRoute> zuulRoutes = new LinkedHashMap<>();
         List<SysZuulRoute> sysZuulRoutes = jdbcTemplate.query("select * from sys_zuul_route where del_flag = 0", new BeanPropertyRowMapper<>(SysZuulRoute.class));
 
-       for (SysZuulRoute route: sysZuulRoutes) {
+        for (SysZuulRoute route : sysZuulRoutes) {
 
-           // 为空跳过
-           if (Strings.isNullOrEmpty(route.getPath()) && Strings.isNullOrEmpty(route.getUrl())) {
-               continue;
-           }
+            // 为空跳过
+            if (Strings.isNullOrEmpty(route.getPath()) && Strings.isNullOrEmpty(route.getUrl())) {
+                continue;
+            }
 
-           ZuulProperties.ZuulRoute zuulRoute = new ZuulProperties.ZuulRoute();
-           try {
-               zuulRoute.setId(route.getServiceId());
-               zuulRoute.setPath(route.getPath());
-               zuulRoute.setServiceId(route.getServiceId());
-               zuulRoute.setRetryable(Objects.equals("0", route.getRetryable()) ? Boolean.FALSE : Boolean.TRUE);
-               zuulRoute.setStripPrefix(Objects.equals("0", route.getStripPrefix()) ? Boolean.FALSE : Boolean.TRUE);
-               zuulRoute.setUrl(route.getUrl());
-               List<String> sensitiveHeadersList = Arrays.asList(route.getSensitiveheadersList().split(","));
-               if (sensitiveHeadersList != null) {
-                   Set<String> sensitiveHeaderSet = Sets.newHashSet();
-                   sensitiveHeadersList.forEach(sensitiveHeader -> sensitiveHeaderSet.add(sensitiveHeader));
-                   zuulRoute.setSensitiveHeaders(sensitiveHeaderSet);
-                   zuulRoute.setCustomSensitiveHeaders(true);
-               }
-           } catch (Exception e) {
-               log.error("从数据库加载路由配置异常", e);
-           }
-           log.debug("添加数据库自定义的路由配置,path：{}，serviceId:{}", zuulRoute.getPath(), zuulRoute.getServiceId());
-           zuulRoutes.put(zuulRoute.getPath(), zuulRoute);
+            ZuulProperties.ZuulRoute zuulRoute = new ZuulProperties.ZuulRoute();
+            try {
+                zuulRoute.setId(route.getServiceId());
+                zuulRoute.setPath(route.getPath());
+                zuulRoute.setServiceId(route.getServiceId());
+                zuulRoute.setRetryable(Objects.equals("0", route.getRetryable()) ? Boolean.FALSE : Boolean.TRUE);
+                zuulRoute.setStripPrefix(Objects.equals("0", route.getStripPrefix()) ? Boolean.FALSE : Boolean.TRUE);
+                zuulRoute.setUrl(route.getUrl());
+                List<String> sensitiveHeadersList = Arrays.asList(route.getSensitiveheadersList().split(","));
+                if (sensitiveHeadersList != null) {
+                    Set<String> sensitiveHeaderSet = Sets.newHashSet();
+                    sensitiveHeadersList.forEach(sensitiveHeader -> sensitiveHeaderSet.add(sensitiveHeader));
+                    zuulRoute.setSensitiveHeaders(sensitiveHeaderSet);
+                    zuulRoute.setCustomSensitiveHeaders(true);
+                }
+            } catch (Exception e) {
+                log.error("从数据库加载路由配置异常", e);
+            }
+            log.debug("添加数据库自定义的路由配置,path：{}，serviceId:{}", zuulRoute.getPath(), zuulRoute.getServiceId());
+            zuulRoutes.put(zuulRoute.getPath(), zuulRoute);
 
-       }
+        }
         return zuulRoutes;
-   }
+    }
 }

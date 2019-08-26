@@ -7,11 +7,10 @@ import lombok.experimental.Accessors;
  * <p>
  * 用户角色关联表
  * </p>
- *
  */
 @Data
 @Accessors(chain = true)
-public class SysUserRole{
+public class SysUserRole {
 
     private static final long serialVersionUID = 1L;
 

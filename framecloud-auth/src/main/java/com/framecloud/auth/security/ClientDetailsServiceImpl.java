@@ -14,7 +14,7 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
 
     @Override
     public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
-        if (!clientDetails.getClientId().equals(clientId)){
+        if (!clientDetails.getClientId().equals(clientId)) {
             throw new ClientRegistrationException("invalid clientId");
         }
         return clientDetails;

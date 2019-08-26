@@ -1,7 +1,7 @@
 package com.framecloud.log.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.framecloud.log.mapper.SysLogMapper;
+import com.framecloud.log.dao.mapper.SysLogMapper;
 import com.framecloud.log.model.entity.SysLog;
 import com.framecloud.log.model.query.SysLogQuery;
 import com.framecloud.log.service.SysLogService;
@@ -16,6 +16,7 @@ public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> impleme
 
     @Autowired
     private SysLogMapper sysLogMapper;
+
 
     @Override
     public SysLogQuery pageByQuery(SysLogQuery query) {

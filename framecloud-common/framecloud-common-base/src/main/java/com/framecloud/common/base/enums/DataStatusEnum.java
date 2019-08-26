@@ -6,7 +6,7 @@ package com.framecloud.common.base.enums;
 public enum DataStatusEnum {
 
     NORMAL("0", "正常"),
-    LOCK("1","删除");
+    LOCK("1", "删除");
 
 
     private String code;
