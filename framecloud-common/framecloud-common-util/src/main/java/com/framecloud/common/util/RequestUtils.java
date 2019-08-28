@@ -1,6 +1,5 @@
 package com.framecloud.common.util;
 
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.ServletInputStream;
@@ -125,8 +124,9 @@ public class RequestUtils {
             return null;
         } else {
             System.out.println("===================" + sb.toString() + "==================");
-            System.out.println("===================" + JSONObject.parseObject(sb.toString()).getInnerMap() + "==================");
-            return JsonUtils.jsonToStringMap(sb.toString());
+           /* System.out.println("===================" + JSONObject.(sb.toString()).getInnerMap() + "==================");
+            return JsonUtils.jsonToStringMap(sb.toString());*/
+           return new HashMap<>();
         }
     }
 

@@ -46,6 +46,13 @@ public class SysEsController {
         return list;
     }
 
+
+    @ResponseBody
+    @PostMapping("/testfind2")
+    public String testfind2(){
+        return "666";
+    }
+
     @ResponseBody
     @PostMapping("/callBack")
     public String callBack(){
