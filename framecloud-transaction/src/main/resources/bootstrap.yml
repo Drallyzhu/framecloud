@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: framecloud-transaction-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.209:8848
+        namespace: 11bab8fb-4f30-4b98-8ed1-404bf192e25a
+      config:
+        server-addr: 192.168.1.209:8848
+        file-extension: yml
+        group: USER_GROUP
+        namespace: 11bab8fb-4f30-4b98-8ed1-404bf192e25a
+  main:
+    allow-bean-definition-overriding: true
