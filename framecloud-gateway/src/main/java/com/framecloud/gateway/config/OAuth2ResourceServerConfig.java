@@ -1,7 +1,7 @@
 package com.framecloud.gateway.config;
 
 
-import com.framecloud.common.config.IgnoreUrlPropertiesConfig;
+import com.framecloud.common.base.config.IgnoreUrlPropertiesConfig;
 import com.framecloud.gateway.auth.endpoint.AuthExceptionEntryPoint;
 import com.framecloud.gateway.auth.handler.CustomAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,7 +3,7 @@ package com.framecloud.auth.config;
 import com.framecloud.auth.mobile.MobileAuthenticationFilter;
 import com.framecloud.auth.mobile.MobileAuthenticationProvider;
 import com.framecloud.auth.service.SysUserService;
-import com.framecloud.common.config.IgnoreUrlPropertiesConfig;
+import com.framecloud.common.base.config.IgnoreUrlPropertiesConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -19,6 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
 
 /**
  * @description: web security配置

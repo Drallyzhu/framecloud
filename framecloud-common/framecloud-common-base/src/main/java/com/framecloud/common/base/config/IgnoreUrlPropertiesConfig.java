@@ -1,4 +1,4 @@
-package com.framecloud.common.config;
+package com.framecloud.common.base.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

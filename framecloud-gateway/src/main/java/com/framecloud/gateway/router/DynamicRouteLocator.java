@@ -18,7 +18,7 @@ import java.util.*;
  * @description: 动态路由实现
  * 普通那种是
  * zuul.routes.<key>.path=/foo/**
- * zuul.routes.<key>.service-id= 服务实例名称
+ * zuul.routes.<key>.service-id= 服务实例名称ExecutorConfig
  * zuul.routes.<key>.url=http://xxxoo
  * 用动态路由的话，就可以配置，不需要写配置重启
  */

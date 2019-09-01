@@ -21,6 +21,7 @@
         <module>framecloud-gateway</module>
         <module>framecloud-user</module>
         <module>framecloud-log</module>
+        <module>framecloud-transaction</module>
         <module>framecloud-starter</module>
     </modules>
 

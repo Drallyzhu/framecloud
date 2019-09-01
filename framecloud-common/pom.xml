@@ -20,8 +20,6 @@
         <module>framecloud-common-middleware</module>
         <module>framecloud-common-util</module>
         <module>framecloud-common-jdbc</module>
-        <module>framecloud-common-spring</module>
-        <module>framecloud-common-config</module>
         <module>framecloud-common-base</module>
         <module>framecloud-common-security</module>
     </modules>

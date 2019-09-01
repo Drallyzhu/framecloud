@@ -1,4 +1,4 @@
-package com.framecloud.common.config;
+package com.framecloud.common.base.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
