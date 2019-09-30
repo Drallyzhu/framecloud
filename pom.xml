@@ -15,15 +15,27 @@
     <packaging>pom</packaging>
 
 
-    <modules>
-        <module>framecloud-common</module>
-        <module>framecloud-auth</module>
-        <module>framecloud-gateway</module>
-        <module>framecloud-user</module>
-        <module>framecloud-log</module>
-        <module>framecloud-transaction</module>
-        <module>framecloud-starter</module>
-    </modules>
+
+    <profiles>
+        <profile>
+            <modules>
+                <module>framecloud-common</module>
+                <module>framecloud-auth</module>
+                <module>framecloud-gateway</module>
+                <module>framecloud-user</module>
+                <module>framecloud-log</module>
+                <module>framecloud-transaction</module>
+                <module>framecloud-starter</module>
+            </modules>
+        </profile>
+    </profiles>
+
+
+
+
+
+
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

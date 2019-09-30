@@ -14,9 +14,18 @@
     <artifactId>framecloud-starter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <modules>
-        <module>framecloud-starter-log</module>
-    </modules>
+
+
+    <profiles>
+        <profile>
+            <modules>
+                <module>framecloud-starter-log</module>
+            </modules>
+        </profile>
+    </profiles>
+
+
+
 
 
     <build>
