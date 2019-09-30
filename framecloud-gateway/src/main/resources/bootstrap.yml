@@ -4,10 +4,10 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.1.209:8848
+        server-addr: 192.168.1.124:8848
         namespace: 04893acf-69fe-4e15-a54d-37543901a2ff
       config:
-        server-addr: 192.168.1.209:8848
+        server-addr: 192.168.1.124:8848
         file-extension: yml
         group: GATE_GROUP
         namespace: 04893acf-69fe-4e15-a54d-37543901a2ff

@@ -12,13 +12,15 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
+@RefreshScope
 @ComponentScan(basePackages = {"com.framecloud.user", "com.framecloud.common"})
 @EnableMethodCache(basePackages = "com.framecloud.user")
 @EnableCreateCacheAnnotation
-@RefreshScope
 public class FramecloudUserApplication {
 
     public static void main(String[] args) {
+        //不加这个，es启动报错
+        System.setProperty("es.set.netty.runtime.available.processors", "false");
         SpringApplication.run(FramecloudUserApplication.class, args);
     }
 
