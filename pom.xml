@@ -16,7 +16,7 @@
 
 
 
-    <profiles>
+    <!--<profiles>
         <profile>
             <modules>
                 <module>framecloud-common</module>
@@ -28,7 +28,17 @@
                 <module>framecloud-starter</module>
             </modules>
         </profile>
-    </profiles>
+    </profiles>-->
+
+    <modules>
+        <module>framecloud-common</module>
+        <module>framecloud-auth</module>
+        <module>framecloud-gateway</module>
+        <module>framecloud-user</module>
+        <module>framecloud-log</module>
+        <module>framecloud-transaction</module>
+        <module>framecloud-starter</module>
+    </modules>
 
 
 
@@ -151,7 +161,7 @@
     </dependencies>
 
 
-    <build>
+    <!--<build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -182,7 +192,7 @@
                                 <delimiter>#</delimiter>
                             </delimiters>
                             <resources>
-                                <!--将resources下的lib的jar打入BOOT-INF/lib包中 -->
+                                &lt;!&ndash;将resources下的lib的jar打入BOOT-INF/lib包中 &ndash;&gt;
                                 <resource>
                                     <directory>src/main/resources/lib</directory>
                                     <targetPath>BOOT-INF/lib/</targetPath>
@@ -199,7 +209,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- k8s打包要用配置 -->
+            &lt;!&ndash; k8s打包要用配置 &ndash;&gt;
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -212,23 +222,23 @@
                         <run><![CDATA[ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone]]></run>
                         <run><![CDATA[mv /app/${project.build.finalName}.jar /app/app.jar]]></run>
                     </runs>
-                    <!-- <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint> -->
-                    <!-- <dockerDirectory>${basedir}/src/main/docker</dockerDirectory> -->
-                    <!-- 私有仓库配置，需要settings.xml文件配合serverId对应的服务地址 -->
-                    <!-- <serverId>${docker.serverId}</serverId> -->
+                    &lt;!&ndash; <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint> &ndash;&gt;
+                    &lt;!&ndash; <dockerDirectory>${basedir}/src/main/docker</dockerDirectory> &ndash;&gt;
+                    &lt;!&ndash; 私有仓库配置，需要settings.xml文件配合serverId对应的服务地址 &ndash;&gt;
+                    &lt;!&ndash; <serverId>${docker.serverId}</serverId> &ndash;&gt;
                     <serverId>${docker.serverId}</serverId>
                     <registryUrl>${docker.repostory}</registryUrl>
-                    <!--install阶段也上传，否则只有deploy阶段上传 -->
+                    &lt;!&ndash;install阶段也上传，否则只有deploy阶段上传 &ndash;&gt;
                     <pushImage>true</pushImage>
                     <imageName>
                         ${docker.repostory}/${docker.registry.name}/${project.artifactId}:${maven.build.timestamp}
                     </imageName>
                     <imageTags>
-                        <!--docker的tag为项目版本号、latest -->
+                        &lt;!&ndash;docker的tag为项目版本号、latest &ndash;&gt;
                         <imageTag>${maven.build.timestamp}</imageTag>
                         <imageTag>latest</imageTag>
                     </imageTags>
-                    <!-- 这里是复制 jar 包到 docker 容器指定目录配置 -->
+                    &lt;!&ndash; 这里是复制 jar 包到 docker 容器指定目录配置 &ndash;&gt;
                     <resources>
                         <resource>
                             <targetPath>/app</targetPath>
@@ -239,7 +249,7 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
 
 
