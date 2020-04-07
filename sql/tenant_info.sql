@@ -1,0 +1,2 @@
+INSERT INTO `tenant_info`(`id`, `kp`, `tenant_id`, `tenant_name`, `tenant_desc`, `create_source`, `gmt_create`, `gmt_modified`) VALUES (1, '1', '11bab8fb-4f30-4b98-8ed1-404bf192e25a', '第一版', '第一版', 'nacos', 1560422745533, 1567068832479);
+INSERT INTO `tenant_info`(`id`, `kp`, `tenant_id`, `tenant_name`, `tenant_desc`, `create_source`, `gmt_create`, `gmt_modified`) VALUES (2, '1', '04893acf-69fe-4e15-a54d-37543901a2ff', '第二版（添加jetcache等）', '第二版（添加jetcache等）', 'nacos', 1567068867989, 1567068867989);
